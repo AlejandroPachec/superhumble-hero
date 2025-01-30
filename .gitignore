@@ -1,0 +1,14 @@
+# Compiled output
+/dist
+/node_modules
+
+
+# Tests
+/coverage
+/.nyc_output
+
+# Build files
+*.tsbuildinfo
+
+
+
