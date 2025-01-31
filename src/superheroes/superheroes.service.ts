@@ -2,12 +2,15 @@ import { Injectable } from '@nestjs/common';
 import { CreateSuperheroDto } from './dto/create-superhero.dto';
 import { Superhero } from './entities/superhero.entity';
 import { v4 as uuidv4 } from 'uuid';
+import { SuperheroesGateway } from './superheroes.gateway';
 
 /**
  * Service handling business logic for superheroes
  */
 @Injectable()
 export class SuperheroesService {
+  constructor(private readonly superheroesGateway: SuperheroesGateway) {}
+
   // In-memory storage for superheroes
   private readonly superheroes: Superhero[] = [];
 
@@ -24,6 +27,8 @@ export class SuperheroesService {
     };
 
     this.superheroes.push(superhero);
+    this.superheroesGateway.notifySuperheroCreated(superhero);
+    this.superheroesGateway.notifySuperheroesUpdated(this.findAll());
     return superhero;
   }
 

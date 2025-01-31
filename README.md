@@ -46,8 +46,8 @@ A NestJS-based REST API for managing humble superheroes. This API allows you to 
    npm run start:dev
    ```
 
-The API will be available at `http://localhost:3000`.
-API documentation is available at `http://localhost:3000/api`.
+The API will be available at `http://localhost:3100`.
+API documentation is available at `http://localhost:3100/api`.
 
 ## API Endpoints
 
